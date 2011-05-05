@@ -1,0 +1,397 @@
+SmartGit 2.0.4 (2011-04-05)
+===========================
+Improvements
+------------
+- Branch Manager: show tag-ID and message (only for annotated tags)
+- Linux: use xdg-open to open URLs in the default browser
+- Setup: git-executable from default settings should be honored
+- Sync: show warning, if merge/rebase had not been performed because
+  it's switched off 
+
+Fixed Bugs
+----------
+- Branch Manager:
+  - possible internal error when trying to delete a remote branch
+  - scroll position was reset on every asynchronous update
+- Clone: possible internal error when trying to clone SVN repository
+  via svn+ssh://dfgfddgfd
+- Commit: "~" in "commit.template" path not properly processed
+- Index Editor: saved file with default line separators instead of
+  original separators
+- Log:
+  - Next/Previous Change did not work if two commits have been selected
+  - if frame is open and minimized, it was not maximized on next Log
+    invocation
+  - possible internal error related to rename-detection
+- Preferences, Conflict Solver: after showing an error, the input field
+  was hidden
+- Project: possible internal error when closing project window
+- Pull: did not work on multiple repositories
+- Refresh:
+  - possible internal error related to file monitor
+  - symlinks did not show up as modified
+
+
+SmartGit 2.0.3 (2011-02-08)
+===========================
+Fixed Bugs
+----------
+- SSH connection logs may pile up in temp directory
+- Refresh:
+  - internal error if file/directory gots obstructured
+  - .git/info/excludes was not honored if core.excludesfile exist
+  - Windows: possible internal error when using Cygwin Git
+- credential dialogs:
+  - if the user enters private key file name, the error message hid the
+    information about the SSH server
+  - if no private key file was known, the passphrase input field was
+    prefocused though the one for the private key file should be
+- various submodule-related problems
+- Ignore dialog: internal error when typing invalid regular expression
+  patterns
+- Log:
+  - internal error clicking on the first commit node
+  - Delete Tag/Branch dialog: internal error clicking Delete without selection
+  - renames were not followed under certain conditions
+- internal error trying to open a working tree in the root of a drive
+  (e.g. network share) on Windows
+- Clone (GitHub):
+  - UI asked for API token where password should be provided causing
+  - internal error when listing repositories
+- Commit: when Push option is selected, not the submodule's repository was
+  pushed, but the parent one
+- Pull: optional initialization of submodules did not work
+
+Further notes
+-------------
+- OS X: Quartz-rendering is now on by default
+- Windows: the portable bundle now includes a JRE to make it really portable
+
+
+SmartGit 2.0.2 (2011-01-07)
+===========================
+Fixed Bugs
+----------
+- Log:
+  - fixed internal error while content is fetched
+  - internal error when invoking "Compare with Working Tree"
+- default perspective layouts were identical
+- launching SmartGit with project as command line parameter:
+  - incorrectly escaped path sent to already running SmartGit instance
+  - if unknown project path was used and the option "reopen last project"
+    was set, the provided project was ignored and the last project opened
+- Codebase integration: added support for API v4
+- refresh (project state): fixed possible internal error
+- when opening a project with obsolete working tree path, an outdated
+  message was shown
+- OS X 10.5: internal error when launching with Java 1.5
+
+
+SmartGit 2.0.1 (2010-12-23)
+===========================
+Fixed Bugs
+----------
+- Clone: possible internal error when trying to clone Git repository
+  over https://
+- Git executable (Windows)
+  - internal error if Cygwin is used, but is not on the PATH
+  - even if msysgit has been configured, cygpath.exe is sometimes invoked
+    if present in the PATH
+- http://-protocol: confusing password prompts and authentication failures
+  in case username is not part of URL
+- Log, Branch Chooser dialog: speed-type is broken
+- Opening project: internal error when trying to open certain working trees
+- Project window/Log: thread leak
+- Refresh:
+  - possible internal errors for the initial scanning phase and the project
+    state refresh
+  - after commands certain files/directories might not be refreshed
+- Reset: added to context menu of submodule
+- Stage on a directory suggested to add ignored files
+
+Happy Christmas to you all!
+
+
+SmartGit 2 (2010-12-17)
+=======================
+Fixed Bugs
+----------
+- Cleanup is called too frequently
+- Refresh: internal error after opening project
+- Commit: manually entered commit message was overwritten by Git's default
+  merge message
+- Pull: branch.<name>.rebase configuration has not been honored
+
+
+SmartGit 2 rc 3 (2010-12-14)
+============================
+Fixed Bugs
+----------
+- Refresh: internal error for git-svn repositories
+- Log: various operations created internal error when invoked on "Merging"
+  node
+- Resolve: did not work for "deleted by them" and "deleted by us" conflict
+  files
+- Rebase:
+  - internal error double-clicking on the second page
+  - when switching to the second page, the error "nothing to rebase
+    selected" was shown
+- Branch Manager: after deleting a branch, always the current branch was
+  selected
+- Project State and Pushable Commits: showed commits even for local tracked
+  branch
+- Index Editor was enabled for conflict files though it could not be
+  opened because of missing Index state
+- Log Graph in Merge or Rebase dialog: hard to see colors (gray on gray)
+  for certain selection states
+
+
+SmartGit 2 rc 2 (2010-12-10)
+============================
+Fixed Bugs
+----------
+- Commit: fixed regression which did not allow to commit staged changes
+  by selecting a staged file
+
+Further notes
+-------------
+- set sun.java2d.d3d to false to prevent often-reported VM bugs
+
+
+SmartGit 2 rc 1 (2010-12-09)
+============================
+New and Improved Features
+-------------------------
+- Clone: Beanstalk support
+
+Fixed Bugs
+----------
+- ignoring a directory did not refresh correctly
+- Rebase: for "HEAD to" certain valid commits were not allowed
+- Commit:
+  - unreasonable preselection of "Staged Changes" instead of "Local Changes"
+  - internal error when committing files from multiple working trees
+- Log: internal error when switching branches
+
+
+SmartGit 2 beta 2 (2010-12-05)
+==============================
+New and Improved Features
+-------------------------
+- Project Manager: ability to open projects
+- OS X: default toolbar layout makes use of stretching separators
+
+Fixed Bugs
+----------
+- Log: internal error when switching branches
+- endless loop in case of internet connection problems
+- internal error when clicking "Send E-Mail" button on Linux
+- Branch Manager: various operations were enabled for git-svn though
+  not applicable
+- initial docking layout was screwed up
+- Project Manager: after drag-and-dropped a project, buttons were not
+  correctly enabled
+- internal error with diff.renames=copy in the .git/config file
+
+
+SmartGit 2 beta 1 (2010-11-29)
+==============================
+Fixed Bugs
+----------
+- http(s)://-repositories which require password couldn't be accessed
+- evaluation mode did not work
+- refresh (Linux/OS X): symlinks always showed up as modified
+- UI: the phrase "tracking branch" was used incorrectly
+- Log:
+  - checking out a local branch from a remote branch origin/foo--bar
+    suggested the local branch foo-bar (no double minus)
+  - with mergable coloring selected, the wrong color was used for
+    selected, but unfocused nodes
+  - when a command is executed, it was not possible to open a new
+    project window using the menu item
+
+
+SmartGit 2 alpha 4 (2010-11-20)
+===============================
+New and Improved Features
+-------------------------
+- Branch Manager, Set Tracking Branch: show information what to select
+  if just one branch is selected
+- File Compare/Text Editors: should honor "eol" attribute from
+  .gitattributes resp. .git/config
+- Log: allow to cherry-pick multiple commits at once
+- Push: detect if forced push is needed and ask whether to proceed
+- Startup: slightly faster
+- Support for more hosting platforms
+
+Fixed Bugs
+----------
+- Branch Manager: evaluation of diverged commits should be tolerant in
+  case of invalid tracking branches
+- Checkout: When switching branch and reopening checkout, old branch is
+  still marked as "current" branch
+- Clone: For SVN repositories, "Map SVN trunk, tags and branches" is not
+  honored
+- File table: double-click should open added files instead of resulting
+  in error message
+- Index Editor: when trying to close and confirming to save, it does not
+  close
+- Log: no commit selected initially
+- Memory leaks resolved
+- Merge: coloring not updated properly when opening dialog
+  (only after switching branches)
+- Opening a project which already is open from command line opened an
+  empty new window
+- Pull: submodules are not properly updated
+- Refresh: error related to SVN integration which results in failing
+  Refresh
+- Refresh: performance improvements in case of large .gitignore files
+- Refresh: possible internal error in combination with core.autocrlf and
+  working tree files just having LF line separators
+- Stage: staging of submodules broken
+
+
+SmartGit 2 alpha 3 (2010-11-16)
+===============================
+Improvements
+------------
+- Log: "Rebase HEAD to" should not offer to rebase only single HEAD
+  commit
+- Rebase: significantly simplified
+
+Fixed Bugs
+----------
+- Branch chooser: refresh operation should be cancelled when dialog is
+  closed
+- Log: after scrolling in the graph, file table flickered
+  (displaying various commit contents)
+- Push Advanced: branch table was enabled even when "Push current branch"
+  was selected
+- Pull: did not perform merge/rebase if no commits were fetched despite
+  local branch is behind tracking branch
+- Refresh: after closing project, tree-file-structure remained
+- Refresh: uninitialized submodules were not properly displayed
+- Startup: unresponsive UI immediately after opening main window
+
+
+SmartGit 2 alpha 2 (2010-11-11)
+===============================
+Improvements
+------------
+- Index Editor: toolbar button (configurable using Edit|Customize)
+- Log: Check Out should not suggest to switch to current branch
+- Require only Git 1.7.1 instead of Git 1.7.2
+- Branch chooser: "expensive" information is refreshed in background
+- Stage: applicable on ignored files
+
+Fixed Bugs
+----------
+- Open: internal error when invoking an external tool
+- Refresh (Windows): internal error for submodules with case-changed
+  file names
+- Refresh: internal error when using "core.autocrlf=input"
+- Refresh: possible internal error (related to "Pushable Commits")
+
+
+SmartGit 2 alpha 1 (2010-11-10)
+===============================
+New and Improved Features
+-------------------------
+- Cherry-Pick:
+  - can handle merge commits by selecting the parent commit
+  - unified with Merge
+- Cherry-Pick/Merge, Commit: one now decides when committing whether to
+  create a merge or simple commit
+- Clean-Up:
+  - not implicitly invoked after commit/pull, but optionally periodically
+    after opening the project
+  - added aggressive option
+  - moved to Local menu
+- Clone remembers the last 10 URLs
+- Commit:
+  - Select from Log: allows to copy message or ID
+  - allow to commit all staged changes even if individual files (with
+    staged changes) are selected
+  - support for commit templates (commit.template)
+  - optionally can push directly after commit
+- Log:
+  - optionally show also commits which are not reachable any more from
+    tags or branches (but recorded in the reflog)
+  - selecting two commits allows to compare them
+  - added commands:
+    - Check Out
+    - Create Tag/Branch
+    - Delete Tag/Branch
+    - Merge
+    - Cherry Pick
+    - Reverse Merge
+    - Rebase (to HEAD, HEAD to)
+  - renamed/moved files are shown
+  - for subdirectories and files changes from all branches are shown
+  - branch and merge coloring
+  - remembers recently shown roots and allows to select multiple roots
+    to be shown
+  - can now be used independent of the project window
+  - visually improved tag and HEAD display
+  - improved file log performance
+  - removed Directories tool window
+- Pull:
+  - hides the remotes combobox if there is just one remote repository
+    configured
+  - optionally removes obsolete tracking branches
+  - performance improvement for unchanged submodules
+- Push: 
+  - separated into a "Push" (to origin, can work on multiple repositories)
+    and "Push Advanced" (just one repository)
+  - Push Advanced allows to push to custom target
+- Rebase: supports rebasing empty branches
+- Reset: improved description
+- Resolve command to resolve conflicting files
+  (git checkout --ours/--theirs)
+- Reverse Merge
+- Stage Lines renamed to Index Editor
+- Stage/Unstage now available in context menu of submodule roots
+- Switch: resets submodules
+- new tool windows:
+  - Pushable Commits
+  - Commit Message (to edit the commit message while reviewing changes)
+- refresh:
+  - supports .gitattributes
+  - improved performance
+  - support for sparse working trees
+- add and remove remote repositories
+- optionally open the last used project when opening
+- 2 perspectives (Main and Review) with their own tool window layouts
+- project file table:
+  - added Ext. column for easy sorting by extension
+  - configure shown columns
+- drag and drop files from SmartGit to external applications, e.g. to
+  open them in a text editor
+- working-tree settings stored within working-tree (.git/smartgit.config)
+- support for local tracking branches
+- file filter allows to filter by multiple patterns, e.g. "*.png, *.gif"
+- local file state distinguish between modified in content/EOLs only/file
+  mode
+- toolbar:
+  - customizable
+  - optionally show text below icons
+  - ability to add stretching separators
+- when closing a project and there are pushable commits, an optional
+  warning is shown
+- Github integration: uses configured proxy
+- Compare 2 Files: uses HEAD if no working tree file found
+
+Fixed Bugs
+----------
+- http-repositories: command hang while waiting for password
+- Pull/Sync: if invoked too quickly after opening a project, the branch was
+  unknown
+- Changes view in project window: selecting a file with staged and
+  working tree changes had been reset to "Show Index vs. Working Tree"
+- Index Editor, Conflict Solver: incorrect coloring for changes at end of
+  file
+  
+Further notes
+-------------
+Contrary to our announcements, the new SVN integration will not be
+included for version 2, but only for version 2.1.
